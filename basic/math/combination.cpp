@@ -2,8 +2,8 @@
 
 using namespace std;
 
-int n = 2;
-int r = 1;
+int n = 9;
+int r = 7;
 int arr[] = {1, 2};
 
 vector<int> v;
