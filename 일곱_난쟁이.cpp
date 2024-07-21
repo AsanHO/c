@@ -3,30 +3,22 @@
 using namespace std;
 
 vector<int> mans;
-vector<int> indexes;
+vector<int> v;
+vector<vector<int>> indexes;
 
 void print(vector<int> v){
     for (auto i : v){
-        cout << i << '\n';
+        cout << i;
     }
+    cout << '\n';
 }
 
 void combi(int start,vector<int> v){
     if (v.size() == 7){
-        int sum = 0;
-        for (int i : v){
-            cout << i;
-            sum += mans[i];
-        }
-        if (sum == 100){
-            for (int i : v){
-            // cout << mans[i];
-            }
-        }
-        cout << '\n';
+        indexes.push_back(v);
         return;
     }
-    for (int i = start + 1; i < 9; i++)
+    for (int i = start+1; i < 9; i++)
     {
         v.push_back(i);
         combi(i, v);
@@ -44,6 +36,20 @@ int main(int argc, char const *argv[]){
     }
     sort(mans.begin(),mans.end());
     // print(mans);
-    combi(-1,indexes);
+    combi(-1,v);
+
+    for (vector<int> index : indexes){
+        int sum = 0;
+        for (int i : index){
+            sum += mans[i];
+        }
+        if (sum == 100){
+            for (int i : index){
+                cout << mans[i];
+                cout << '\n';
+            }         
+            break;
+        }
+    }
     return 0;
 }

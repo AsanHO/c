@@ -15,13 +15,27 @@ void print(vector<int> v){
     cout << '\n';
 }
 
+// void combi(int start, vector<int> v){
+//     // 3개의 구슬이 뽑아지면
+//     if(v.size() == r){
+//         print(v);
+//         return;
+//     }
+//     for(int i=start+1; i < n; i++){
+//         v.push_back(i);
+//         combi(i, v);
+//         v.pop_back();
+//     }
+//     return;
+// }
+
 void combi(int start, vector<int> v){
-    // 3개의 구슬이 뽑아지면
-    if(v.size() == r){
+    if (v.size() == 7){
         print(v);
         return;
     }
-    for(int i=start+1; i < n; i++){
+    for (int i = start+1; i < 9; i++)
+    {
         v.push_back(i);
         combi(i, v);
         v.pop_back();
