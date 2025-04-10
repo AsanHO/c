@@ -39,18 +39,64 @@ int main() {
     비트플래그 : 배열을 좀더 컴팩트하게 사용할 수 있음 <- 속도도 더
     빠름(성능주의) 4바이트 기본단위에 bool 타입을 우겨넣는다.
     */
-    const unsigned char opt0 = 1 << 0;
-    const unsigned char opt1 = 1 << 1;
-    const unsigned char opt2 = 1 << 2;
-    const unsigned char opt3 = 1 << 3;
+    const unsigned char item0 = 1 << 0;
+    const unsigned char item1 = 1 << 1;
+    const unsigned char item2 = 1 << 2;
+    const unsigned char item3 = 1 << 3;
 
-    cout << bitset<8>(opt0) << endl;
-    cout << bitset<8>(opt1) << endl;
-    cout << bitset<8>(opt2) << endl;
-    cout << bitset<8>(opt3) << endl;
+    cout << bitset<8>(item0) << endl;
+    cout << bitset<8>(item1) << endl;
+    cout << bitset<8>(item2) << endl;
+    cout << bitset<8>(item3) << endl;
 
     unsigned char items_flag = 0;
 
     cout << bitset<8>(items_flag) << endl;
+    // get item 0,3
+    items_flag |= item0;
+    items_flag |= item3;
+    cout << bitset<8>(items_flag) << endl;
+    // item 3 lost
+    items_flag &= ~item3;  // !와 동일
+    cout << bitset<8>(~item3) << endl;
+    cout << bitset<8>(items_flag) << endl;
+
+    // isHasItem
+    // 내가 쓴 방식
+
+    // cout << bitset<8>(items_flag) << endl;
+    // // it has item1? 0
+    // if ((items_flag | item1) == items_flag){
+    //     cout << "isItem1 : 1" <<endl;
+    // }else{
+    //     cout << "isItem1 : 0" <<endl;
+    // }
+    items_flag |= item1;
+    if (items_flag & item1) {  // & 연산의 경우 피연산자의 1인 부분만 계산한다.
+        cout << "isItem1 : 1" << endl;
+    } else {
+        cout << "isItem1 : 0" << endl;
+    }
+
+    // getItems
+    items_flag = 0;
+    items_flag |= (item2 | item3);
+    cout << bitset<8>(items_flag) << endl;
+
+    // 비트마스크 : 마스킹 테이프(필요한 작업 내용을 선택할 수 있음)
+    constexpr unsigned int red = 0xFF0000;
+    constexpr unsigned int green = 0x00FF00;
+    constexpr unsigned int blue = 0x0000FF;
+    constexpr unsigned int pixel_color = 0xDAA520;
+    // argb
+    cout << bitset<32>(pixel_color) << endl;
+    // 비트 연산자 우선순위는 항상 낮음
+    unsigned int redColor = (pixel_color & red) >> 16;
+    unsigned int greenColor = (pixel_color & green) >> 8;
+    unsigned int blueColor = pixel_color & blue;
+
+    cout << "red : " << bitset<8>(redColor) << endl;
+    cout << "green : " << bitset<8>(greenColor) << endl;
+    cout << "blue : " << bitset<8>(blueColor) << endl;
     return 0;
 }
