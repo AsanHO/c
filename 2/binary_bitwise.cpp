@@ -98,5 +98,7 @@ int main() {
     cout << "red : " << bitset<8>(redColor) << endl;
     cout << "green : " << bitset<8>(greenColor) << endl;
     cout << "blue : " << bitset<8>(blueColor) << endl;
+
+    cout <<   bitset<25>((1 <<21 )) << endl;
     return 0;
 }
