@@ -1,6 +1,16 @@
 #include <iostream>
 
 using namespace std;
+
+void check_ptr(double *ptr) {
+    cout << "adress: " << &ptr << endl;
+    if (ptr == nullptr) {
+        cout << "ptr_1 is null" << endl;
+    } else {
+        cout << "ptr_1 is not null" << endl;
+        cout << "value of ptr: " << *ptr << endl;
+    }
+}
 int main() {
     // 메모리를 담는 변수 => 포인터
     int x = 10;
@@ -33,6 +43,31 @@ int main() {
     cout << sizeof(y) << endl;                        // 8
     cout << sizeof(&x) << " " << sizeof(&y) << endl;  // 8
     // 포인터의 크기는 해당 포인터가 가리키는 데이터의 크기와 상관없이 항상
-     // int double struct 모두 8바이트이다. 32비트 시스템에서는 4바이트이다.\
+    // int double struct 모두 8바이트이다. 32비트 시스템에서는 4바이트이다.\
+
+    /*
+    ***************************************
+    널포인터
+    포인터도 마찬가지로 쓰레기 주소의 값을 확인할 수 있다.(버그임)
+    이런문제를 방지하기 위해 널포인터를 사용하며 실제로 많이 사용한다.
+    */
+    double *ptr_1 = 0;
+    double *ptr_2 = nullptr;  // 포인터를 초기화할 때는 nullptr을 사용한다.
+
+    // nullptr은 C++11부터 사용 가능하다.
+    // 0은 C++98부터 사용 가능하다.
+    // 0은 C++11부터 deprecated 되었다.
+    // 0은 C++11부터 nullptr로 대체되었다.
+
+    check_ptr(ptr_1);
+    check_ptr(ptr_2);
+    double d = 1.23;
+    ptr_2 = &d;
+    check_ptr(ptr_2);
+
+    cout << "adress : " << &ptr_2 << endl;
+    // 포인터 또한 주소를 담는 변수이기에 함수 호출 과정에서의값(파라미터값이
+    // 복사가 일어나므로)과 메인 안에서의 값이 다른 것을 확인할 수 있다.
+
     return 0;
 }
