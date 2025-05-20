@@ -1,14 +1,14 @@
 /*
 10.stack_heap
+포인터나 메모리 학습에서 좀 더 쉽게 사용할 수 있을 것 같은 의문이 생기는데
+이는 컴퓨터 구조에 대해서 구체적으로 알아야할 필요가 있다.
+
+프로그램을 실행하면 운영체제는 프로그램을 위한 메모리 공간을 할당한다.
+그리고 그 메모리는 세그먼트(segment)라는 단위로 나뉘어져 있다.
+각각의 세그먼트는 서로 다른 용도로 사용된다.
+
+참조
+https://velog.io/@gorma2000/C-%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EA%B5%AC%EC%A1%B0%ED%9E%99%EA%B3%BC-%EC%8A%A4%ED%83%9D
+
 
 */
-#include <iostream>
-
-using namespace std;
-
-int main() {
-    cout << (141000 + 15000 + 26500 + 27200) / 5 << endl;
-    cout << (29000) / 3 << endl;
-    cout << 41900 + 9400 << endl;
-    return 0;
-}
