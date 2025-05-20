@@ -1,5 +1,5 @@
 /*
-8.function_pointer.cpp
+9.function_pointer.cpp
 객체지향으로 이어지는 중요한 개념
 함수포인터는 복잡하고 어려운 형태를 간단하게 구현할 수 있게 해준다.
 */
