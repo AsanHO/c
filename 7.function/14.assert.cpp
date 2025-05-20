@@ -27,5 +27,7 @@ int main() {
 
     const int x = 10;
     static_assert(x == 10, "x must be positive");  // 컴파일 타임에 조건을 검사
+    // 위의 경우 컴파일 타임에 x가 10이 아닌 경우 오류가 발생한다.
+    // 때문에 컴파일을 진행하지 않았을때에도 ide가 오류를 표시한다.
     return 0;
 }
