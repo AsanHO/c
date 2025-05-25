@@ -8,8 +8,9 @@ using namespace std;
 
 class Fraction {
    private:
-    int numerator;
-    int denominator;
+    int m_numerator;  // 멤버를 의미하기때문에
+                      // m_ 접두사를 붙이는 것이 관례
+    int m_denominator;
 
    public:
     // 생성자(Constructor)
@@ -20,28 +21,28 @@ class Fraction {
         if (den == 0) {
             std::cout << "Error: Denominator cannot be zero. Setting to 1."
                       << std::endl;
-            denominator = 1;  // 분모가 0인 경우, 기본값으로 1 설정
+            m_denominator = 1;  // 분모가 0인 경우, 기본값으로 1 설정
         } else {
-            denominator = den;
+            m_denominator = den;
         }
-        numerator = num;
+        m_numerator = num;
     }
 
     void display() const {
-        std::cout << numerator << "/" << denominator << std::endl;
+        std::cout << m_numerator << "/" << m_denominator << std::endl;
     }
 };
 
 class FractionErrorTest {
    private:
-    int numerator;
-    int denominator;
+    int m_numerator;
+    int m_denominator;
 
    public:
     // FractionErrorTest(){} 아무일도 안는 기본 생성자 함수가 숨어져 있다. ->
     // 쓰레기값 유도
     void display() const {
-        std::cout << numerator << "/" << denominator << std::endl;
+        std::cout << m_numerator << "/" << m_denominator << std::endl;
     }
 };
 
