@@ -26,7 +26,8 @@ class Cents {
     friend std::ostream& operator<<(std::ostream& out, const Cents& c) {
         out << c.m_cents << " cents";
         return out;
-    }
+    }  // friend 키워드를 사용하여 << 연산자가 Cents 클래스의 private 멤버에
+       // 접근할 수 있도록 함
 };
 
 int main() {
