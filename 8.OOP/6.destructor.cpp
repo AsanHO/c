@@ -5,8 +5,8 @@
 - 소멸자는 객체가 소멸될 때 자동으로 호출되는 함수
 - 생성자와 달리 매개변수를 가질 수 없음
 - 소멸자는 인스턴스가 메모리에서 해제될 때 내부에서 자동으로 호출되며,
-(⚠️중요!!!!)동적할당의 경우 영역을 벗어나도 자동으로 메모리가 해제되지 않기 때문에
-delete로 메모리를 해제할 때만 소멸자가 호출된다.
+(⚠️중요!!!!)동적할당의 경우 영역을 벗어나도 자동으로 메모리가 해제되지 않기
+때문에 delete로 메모리를 해제할 때만 소멸자가 호출된다.
 - 소멸자를 프로그래머가 직접 호출하는 것은 대부분의 경우 권장되지 않는다.
 */
 #include <iostream>
@@ -29,7 +29,9 @@ class SimpleClass {
 
 class IntArray {
    private:
-    int* m_arr = nullptr;  // 사실 벡터를 쓰면 밑의 절차를 할 필요는 없음. 심지어 대부분 성능도 좋음. 물론 커스텀하면 벡터보다 좋을 수도 있음
+    int* m_arr =
+        nullptr;  // 사실 벡터를 쓰면 밑의 절차를 할 필요는 없음. 심지어 대부분
+                  // 성능도 좋음. 물론 커스텀하면 벡터보다 좋을 수도 있음
     int m_length = 0;
 
    public:
@@ -39,7 +41,8 @@ class IntArray {
         cout << "constructor called, length: " << m_length << endl;
     }
     ~IntArray() {
-        delete[] m_arr;  // 동적 할당된 메모리 해제 소멸되어도 delete 안하면 메모리 누수 발생
+        delete[] m_arr;  // 동적 할당된 메모리는 소멸되어도 delete 안하면 메모리
+                         // 누수 발생
         cout << "Destructor called, length: " << m_length << endl;
     }
 };
@@ -52,7 +55,8 @@ int main() {
     while (true) {
         IntArray arr(1000000000);  // 동적 할당된 객체 생성
     }
-    // 소멸자는 main 함수가 끝나면서 자동으로 호출되거나 위처럼 delete를 통해 호출됨
+    // 소멸자는 main 함수가 끝나면서 자동으로 호출되거나 위처럼 delete를 통해
+    // 호출됨
 
     return 0;  // 프로그램 종료 시 소멸자 호출
 }
