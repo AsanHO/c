@@ -20,8 +20,8 @@ class Student {
     int getIntel() { return m_intel; }
     // 상속과 템플릿을 배우면 코딩량이 적어진다. 뒤로갈수록 코딩 속력이 더 빨라진다.
 
-    friend std::ostream& operator<<(std::ostream& out, const Student& student) {
-        out << student.m_name << " " << student.m_intel << std::endl;
+    friend std::ostream& operator<<(std::ostream& out, const Student* student) {
+        out << (*student).m_name << " " << (*student).m_intel << std::endl;
         return out;
     }
 };
