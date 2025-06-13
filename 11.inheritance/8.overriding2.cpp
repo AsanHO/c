@@ -1,6 +1,7 @@
 /*
 8.overriding2
-이번에는 함수를 아예 못쓰게 막아버리는 방법을 알아보자
+이번에는 유도된 클래스에서 상속받은 private변수 를 public으로 바꾸거나
+public 함수를 private로 바꾸는 방법에 대해 알아보자. 이역시 오버라이딩이다.
 */
 
 #include <iostream>
