@@ -17,9 +17,10 @@ int main() {
     cout << *ptr << endl;  // 7
     cout << ptr << endl;   // 메모리 주소
 
-    delete ptr;           // os에 메모리를 반납한다.
-    cout << ptr << endl;  // 쓰레기값
-    ptr = nullptr;        // ptr을 nullptr로 초기화한다.(권장)
+    delete ptr;            // os에 메모리를 반납한다.
+    cout << ptr << endl;   // 쓰레기값
+    cout << *ptr << endl;  // 쓰레기값
+    ptr = nullptr;         // ptr을 nullptr로 초기화한다.(권장)
 
     // cout << *ptr << endl;  // // 런타임 에러
     cout << ptr << endl;  // 메모리 주소
@@ -33,11 +34,11 @@ int main() {
     }
     // memory leak
     // 메모리 누수
-    while (true) {
-        int *ptr3 = new int;
-        cout << ptr3 << endl;
-        // 실행시키면 메모리 누수가 발생한다.
-    }
+    // while (true) {
+    //     int *ptr3 = new int;
+    //     cout << ptr3 << endl;
+    //     // 실행시키면 메모리 누수가 발생한다.
+    // }
 
     return 0;
 }

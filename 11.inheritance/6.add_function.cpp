@@ -15,4 +15,10 @@ class Derived : public Base {
     void setValue(int value) { Base::m_value = value; }
 };
 
-int main() { return 0; }
+int main() {
+    int result = (2782080 + 2782080 + 3386520 + 2315940 + 582262 + +1680000 +
+                  1920000 + 2040000 + 1920000 + 1920000) /
+                 9;
+    std::cout << result;
+    return 0;
+}
