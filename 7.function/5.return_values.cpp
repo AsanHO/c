@@ -48,6 +48,10 @@ int main() {
     // 사용하면 예기치 않은 동작이 발생할 수 있다.
     // 지역 변수를 반환하는 것은 안전하지 않습니다. 올바른 방법은
     // 동적 메모리를 사용하거나, 참조를 반환하는 것이다.
+    // 다른해설 ⬇️
+    // 함수앞의 *는 포인터를 역참조하여 값을 가져오는 것을 의미합니다.
+    // 하지만 getValue 함수는 지역 변수의 주소를 반환하므로,
+    // 이 주소는 함수가 종료되면 유효하지 않게 됩니다.
 
     // good case 1
     // int* array = new int[10];
@@ -56,8 +60,7 @@ int main() {
     // wrong case 2
     int value2 = getReference(5);
     cout << "Value2: " << value2 << endl;
-    cout << "Value2: " << value2
-         << endl;  // 위 실행부터 value2가 사라져서 쓰레기값이 될 수 있다.
+    cout << "Value2: " << value2 << endl;  // 위 실행부터 value2가 사라져서 쓰레기값이 될 수 있다.
     cout << "Value2: " << value2 << endl;
 
     // good case 2 : 메모리가 잡혀 있는 경우에는 사용해도 좋다.

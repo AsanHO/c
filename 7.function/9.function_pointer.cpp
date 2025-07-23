@@ -26,6 +26,8 @@ void printNumber(const array<int, 10>& arr, CheckFunc check_fnc = checkEven) {
 }
 int main() {
     cout << reinterpret_cast<void*>(func) << endl;
+    // reinterpret_cast는 포인터의 타입을 변환할 때 사용한다.
+    // <void*>로 변환하면 함수 포인터를 출력할 수 있다.
     int (*fcnptr)() = func;    // 물론 매개변수 타입도 같아야한다.
     cout << fcnptr() << endl;  // 5
     fcnptr = func2;
