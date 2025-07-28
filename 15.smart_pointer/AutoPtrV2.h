@@ -18,27 +18,27 @@ class AutoPtrV2 {
         if (m_ptr != nullptr) delete m_ptr;
     }
 
-    // AutoPtrV2(AutoPtrV2 &a) {
-    //     std::cout << "AutoPtrV2 copy constructor" << std::endl;
-    //     // m_ptr = a.m_ptr;
+    AutoPtrV2(AutoPtrV2 &a) {
+        std::cout << "AutoPtrV2 copy constructor" << std::endl;
+        // m_ptr = a.m_ptr;
 
-    //     // deep copy
-    //     m_ptr = new T;
-    //     *m_ptr = *a.m_ptr;
-    // }
+        // deep copy
+        m_ptr = new T;
+        *m_ptr = *a.m_ptr;
+    }
 
-    // AutoPtrV2 &operator=(const AutoPtrV2 &a) {
-    //     std::cout << "AutoPtrV2 copy assignment" << std::endl;
-    //     if (&a == this) return *this;
+    AutoPtrV2 &operator=(const AutoPtrV2 &a) {
+        std::cout << "AutoPtrV2 copy assignment" << std::endl;
+        if (&a == this) return *this;
 
-    //     // delete m_ptr;
-    //     // m_ptr = a.m_ptr;
-    //     // a.m_ptr = nullptr;
-    //     if (m_ptr != nullptr) delete m_ptr;
-    //     m_ptr = new T;
-    //     *m_ptr = *a.m_ptr;
-    //     return *this;
-    // }
+        // delete m_ptr;
+        // m_ptr = a.m_ptr;
+        // a.m_ptr = nullptr;
+        if (m_ptr != nullptr) delete m_ptr;
+        m_ptr = new T;
+        *m_ptr = *a.m_ptr;
+        return *this;
+    }
 
     // move assignment
     /*
