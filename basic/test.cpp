@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-cout << "hello world다. 이녀석들아." << "\n";
-return 0;
+    int num = 5;
+    cout << &num << endl;
+    return 0;
 }
